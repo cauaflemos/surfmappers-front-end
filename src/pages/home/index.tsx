@@ -1,11 +1,17 @@
-import { Header } from '../../components';
+import { ButtonAddImage, CardHome, Header } from '../../components';
+import { MockVitrineTelaInicial } from '../../db';
 import * as S from './style';
 
 const Home = () => {
     return (
         <S.HomeContainer>
             <Header />
-            <h1>Home</h1>
+            <S.ShowcaseWrapper>
+                <S.Showcase>
+                    {MockVitrineTelaInicial.map((e, idx) => <CardHome key={`CardHome${idx}`} post={e} />)}
+                </S.Showcase>
+            </S.ShowcaseWrapper>
+            <ButtonAddImage />
         </S.HomeContainer>
     )
 };
