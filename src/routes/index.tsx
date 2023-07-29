@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Home, Revision } from "../pages";
 
 export const AppRoutes = createBrowserRouter([
-  {
-    path: "/",
-    element: <h1>home</h1>,
-  },
-  {
-    path: "/revisao",
-    element: <h1>revisao</h1>,
-  },
+    {
+        path: "/",
+        element: <Home />,
+    },
+    {
+        path: "/revision",
+        element: <Revision />,
+    },
 ]);
