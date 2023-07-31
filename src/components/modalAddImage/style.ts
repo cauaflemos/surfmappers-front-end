@@ -23,7 +23,7 @@ export const ModalWrapper = styled.div`
     right: 0;
     bottom: 0;
     margin: auto;
-    
+    overflow-y: auto;
     box-sizing: border-box;
 
     ${media.TABLET`
@@ -97,9 +97,16 @@ export const ImgContainer = styled.div`
     margin-right: 1.5rem;
     img {
         width: 350px;
+        max-height: 600px;
+        object-fit: scale-down;
     }  
+    ${media.TABLET`
+        margin-right: 0;
+        margin-bottom: 1rem;
+    `}
     ${media.SMARTPHONE`
         margin-right: 0;
+        margin-bottom: 1rem;
         img {
             width: 100%;
         }
@@ -116,4 +123,17 @@ export const SubmitBtn = styled.button`
     border-radius: 5px;
     padding: 0.3rem 0;
     cursor: pointer;
+`;
+
+export const CloseModal = styled.div`
+    width: 100%;
+    text-align: right;
+
+    span {
+        user-select: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #E70000;
+        cursor: pointer;
+    }
 `;

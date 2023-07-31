@@ -12,7 +12,7 @@ export const ButtonContainer = styled.button`
     margin: 0 2rem 2rem 0;
     display: flex;
     transition: all 0.3s linear;
-    
+    z-index: 200;
     :hover {
         opacity: 0.7;
     }

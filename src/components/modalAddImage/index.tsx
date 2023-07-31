@@ -10,7 +10,11 @@ interface IFormInput {
     author: string;
 }
 
-const ModalAddImage = () => {
+interface IModalProps {
+    closeModal: () => void;
+}
+
+const ModalAddImage = ({ closeModal }: IModalProps) => {
     const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
     const [image, setImage] = useState<string | null>(null);
 
@@ -29,6 +33,9 @@ const ModalAddImage = () => {
     return (
         <S.ModalContainer>
             <S.ModalWrapper>
+                <S.CloseModal>
+                        <span onClick={closeModal}>X</span>
+                </S.CloseModal>
                 <S.ModalTitle>
                     <h1>Envie suas fotos para a galeria do casamento</h1>
                     <h2>Participe desta celebração conosco compartilhando seus momentos favoritos.</h2>

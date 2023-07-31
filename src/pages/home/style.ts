@@ -16,7 +16,7 @@ export const Showcase = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-
+    margin-bottom: 2rem;
     ${media.TABLET`
         grid-template-columns: repeat(2, 1fr);
     `}

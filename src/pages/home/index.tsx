@@ -4,9 +4,11 @@ import * as S from './style';
 import { useState } from 'react';
 
 const Home = () => {
-    const [modalStatus, setModalStatus] = useState(true);
+    const [modalStatus, setModalStatus] = useState(false);
 
     const openModal = () => setModalStatus(true); 
+
+    const closeModal = () => setModalStatus(false); 
 
     return (
         <S.HomeContainer>
@@ -17,8 +19,8 @@ const Home = () => {
                 </S.Showcase>
             </S.ShowcaseWrapper>
             <ButtonAddImage openModal={openModal} />
-            {/* {modalStatus && <ModalAddImage />} */}
-            <ModalAddImage />
+            {modalStatus && <ModalAddImage closeModal={closeModal} />}
+            {/* <ModalAddImage /> */}
         </S.HomeContainer>
     )
 };
