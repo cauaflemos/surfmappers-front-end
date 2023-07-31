@@ -5,7 +5,7 @@ export const CardDescription = styled.div`
     width: 100%;
     height: 250px;
     position: absolute;
-    z-index: 9999;
+    z-index: 100;
     top: 0;
     right: 0;
     bottom: 0;

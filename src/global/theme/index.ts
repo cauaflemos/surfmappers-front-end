@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  input, button {
+    font-family: 'Ingrid Darling', cursive;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
   }

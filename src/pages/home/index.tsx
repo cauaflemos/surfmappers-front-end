@@ -1,10 +1,10 @@
-import { ButtonAddImage, CardHome, Header } from '../../components';
+import { ButtonAddImage, CardHome, Header, ModalAddImage } from '../../components';
 import { MockVitrineTelaInicial } from '../../db';
 import * as S from './style';
 import { useState } from 'react';
 
 const Home = () => {
-    const [modalStatus, setModalStatus] = useState(false);
+    const [modalStatus, setModalStatus] = useState(true);
 
     const openModal = () => setModalStatus(true); 
 
@@ -17,6 +17,8 @@ const Home = () => {
                 </S.Showcase>
             </S.ShowcaseWrapper>
             <ButtonAddImage openModal={openModal} />
+            {/* {modalStatus && <ModalAddImage />} */}
+            <ModalAddImage />
         </S.HomeContainer>
     )
 };
