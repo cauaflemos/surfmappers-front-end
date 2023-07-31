@@ -11,10 +11,11 @@ export const CardDescription = styled.div`
     bottom: 0;
     left: 0;
     margin: auto;
-    visibility: hidden;
     display: grid;
     align-content: space-around;   
     text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s linear;
 
     h1 {
         color: var(--color-white);
@@ -28,16 +29,17 @@ export const CardDescription = styled.div`
 export const CardContainer = styled.div`
     height: 250px;
     position: relative;
-
+    user-select: none;
     img {
         z-index: 1;
         width: 100%;
         height: 100%;
         object-fit: cover;
     }  
+    
 
     &:hover ${CardDescription} {
-        visibility: visible;
+        opacity: 1;
         background-color: rgba(0, 0, 0, 0.7);
     }
 `;
