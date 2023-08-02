@@ -24,3 +24,8 @@ export const Showcase = styled.div`
         grid-template-columns: repeat(1, 1fr);
     `}
 `;
+
+
+export const NoPostsText = styled.h1`
+    font-size: 2rem;
+`;

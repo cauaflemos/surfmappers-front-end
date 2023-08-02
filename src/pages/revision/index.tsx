@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Header, ImgCardRevision } from '../../components';
+import { ButtonNav, Header, ImgCardRevision } from '../../components';
 import { IPost } from '../../interfaces';
 import { Axios } from '../../services';
 import * as S from './style';
@@ -33,6 +33,7 @@ const Revision = () => {
                         </S.Showcase>
                 }
             </S.ShowcaseWrapper>
+            <ButtonNav />
         </S.RevisionContainer>
     )
 };

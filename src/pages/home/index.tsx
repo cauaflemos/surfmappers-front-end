@@ -1,4 +1,4 @@
-import { ButtonAddImage, CardHome, Header, ModalAddImage } from '../../components';
+import { ButtonAddImage, ButtonNav, CardHome, Header, ModalAddImage } from '../../components';
 import { IPost } from '../../interfaces';
 import { Axios } from '../../services';
 import { useEffect, useState } from 'react';
@@ -24,11 +24,17 @@ const Home = () => {
         <S.HomeContainer>
             <Header />
             <S.ShowcaseWrapper>
-                <S.Showcase>
-                    {posts.map((e, idx) => <CardHome key={`CardHome${idx}`} post={e} />)}
-                </S.Showcase>
+                {
+                    posts.length === 0 ? 
+                        <S.NoPostsText>- Não há posts disponíveis no momento. Volte em breve! -</S.NoPostsText>
+                    :
+                        <S.Showcase>
+                            {posts.map((e, idx) => <CardHome key={`CardHome${idx}`} post={e} />)}
+                        </S.Showcase>
+                }
             </S.ShowcaseWrapper>
             <ButtonAddImage openModal={openModal} />
+            <ButtonNav />
             {modalStatus && <ModalAddImage closeModal={closeModal} />}
         </S.HomeContainer>
     )

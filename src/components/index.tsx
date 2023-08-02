@@ -5,3 +5,4 @@ export { default as ModalAddImage } from './modalAddImage';
 export { default as InputWTitle } from './InputWTitle';
 export { default as ImgCardRevision } from './imgCardRevision';
 export { default as CardRevisionDesc } from './cardRevisionDesc';
+export { default as ButtonNav } from './buttonNav';
