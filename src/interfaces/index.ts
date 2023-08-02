@@ -1,6 +1,8 @@
-export interface IPosts {
-    title: string;
+export interface IPost {
+    author: string;
     description: string;
     imgSrc: string;
-    author: string;
+    isAuthorized: boolean;
+    postId: string;
+    title: string;
 }

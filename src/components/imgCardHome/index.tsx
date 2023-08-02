@@ -1,8 +1,10 @@
-import { IPosts } from '../../interfaces';
+import { IPost } from '../../interfaces';
 import * as S from './style'
+
 interface ICardProps {
-    post: IPosts
+    post: IPost
 }
+
 const CardHome = ({ post }: ICardProps) => {
     return (
         <S.CardContainer>

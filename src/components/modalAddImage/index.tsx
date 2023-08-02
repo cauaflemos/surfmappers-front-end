@@ -3,6 +3,8 @@ import IconSVG from '../../assets/015-images.svg';
 import * as S from './style';
 import { InputWTitle } from '..';
 import { useForm } from 'react-hook-form';
+import { Axios } from '../../services';
+import { toast } from 'react-toastify';
 
 interface IFormInput {
     title: string;
@@ -26,9 +28,37 @@ const ModalAddImage = ({ closeModal }: IModalProps) => {
             reader.readAsDataURL(file);
         }
     }
-    const onSubmit = (data: IFormInput) => {
-        // TODO envio da imagem para revisao
-        console.log({ ...data, img: image });
+    const onSubmit = async (data: IFormInput) => {
+        try {
+            await Axios.post("/gallery/post/add", {
+                title: data.title,
+                description: data.description,
+                imgSrc: image,
+                author: data.author
+            });
+            toast.success("Post cadastrado com sucesso!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        } catch (error) {
+            toast.error("Erro ao cadastrar o post!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+        closeModal();
     }
     return (
         <S.ModalContainer>

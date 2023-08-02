@@ -1,26 +1,35 @@
 import { ButtonAddImage, CardHome, Header, ModalAddImage } from '../../components';
-import { MockVitrineTelaInicial } from '../../db';
+import { IPost } from '../../interfaces';
+import { Axios } from '../../services';
+import { useEffect, useState } from 'react';
 import * as S from './style';
-import { useState } from 'react';
 
 const Home = () => {
     const [modalStatus, setModalStatus] = useState(false);
-
+    const [posts, setPosts] = useState<IPost[] | []>([]);
     const openModal = () => setModalStatus(true); 
 
     const closeModal = () => setModalStatus(false); 
+    
+    useEffect(() => {
+        const getPosts = async () => {
+            const { data } = await Axios.get("/gallery/post/list/common");
+            setPosts(data.result);
+        };
+
+        getPosts();
+    }, [])
 
     return (
         <S.HomeContainer>
             <Header />
             <S.ShowcaseWrapper>
                 <S.Showcase>
-                    {MockVitrineTelaInicial.map((e, idx) => <CardHome key={`CardHome${idx}`} post={e} />)}
+                    {posts.map((e, idx) => <CardHome key={`CardHome${idx}`} post={e} />)}
                 </S.Showcase>
             </S.ShowcaseWrapper>
             <ButtonAddImage openModal={openModal} />
             {modalStatus && <ModalAddImage closeModal={closeModal} />}
-            {/* <ModalAddImage /> */}
         </S.HomeContainer>
     )
 };

@@ -1,14 +1,31 @@
+import { useEffect, useState } from 'react';
 import { Header, ImgCardRevision } from '../../components';
-import { MockVitrineTelaInicial } from '../../db';
+import { IPost } from '../../interfaces';
+import { Axios } from '../../services';
 import * as S from './style';
 
 const Revision = () => {
+    const [posts, setPosts] = useState<IPost[] | []>([]);
+    const [refresh, setRefresh] = useState<boolean>(false);
+    useEffect(() => {
+        const getPosts = async () => {
+            const { data } = await Axios.get("/gallery/post/list/auth");
+            setPosts(data.result);
+        };
+
+        getPosts();
+    }, [refresh])
+
+    const refreshShowcase = () => {
+        setRefresh(refresh ? false : true)
+    }
+
     return (
         <S.RevisionContainer>
             <Header />
             <S.ShowcaseWrapper>
                 <S.Showcase>
-                    {MockVitrineTelaInicial.map((e) => <ImgCardRevision post={e} />)}
+                    {posts.map((e) => <ImgCardRevision post={e} refreshShowcase={refreshShowcase} />)}
                 </S.Showcase>
             </S.ShowcaseWrapper>
         </S.RevisionContainer>
