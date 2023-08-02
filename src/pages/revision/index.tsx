@@ -24,9 +24,14 @@ const Revision = () => {
         <S.RevisionContainer>
             <Header />
             <S.ShowcaseWrapper>
-                <S.Showcase>
-                    {posts.map((e) => <ImgCardRevision post={e} refreshShowcase={refreshShowcase} />)}
-                </S.Showcase>
+                {
+                    posts.length === 0 ? 
+                        <S.NoPostsText>- Sem posts pendentes de aprovação -</S.NoPostsText>
+                    :
+                        <S.Showcase>
+                            {posts.map((e) => <ImgCardRevision post={e} refreshShowcase={refreshShowcase} />)}
+                        </S.Showcase>
+                }
             </S.ShowcaseWrapper>
         </S.RevisionContainer>
     )

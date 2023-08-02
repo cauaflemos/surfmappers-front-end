@@ -23,6 +23,19 @@ const ModalAddImage = ({ closeModal }: IModalProps) => {
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files && event.target.files[0];
         if (file) {
+            if (file.size > 4242880) {
+                toast.warn("O arquivo é muito grande! Por favor, carregue um arquivo menor que 4MB.", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                return;
+            }
             const reader = new FileReader();
             reader.onloadend = () => setImage(reader.result as string);
             reader.readAsDataURL(file);

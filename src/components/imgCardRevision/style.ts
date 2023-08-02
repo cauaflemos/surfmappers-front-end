@@ -35,4 +35,5 @@ export const Button = styled.button<{ btnType: string }>`
     border: none;
     color: var(--color-white);
     font-size: 2rem;
+    cursor: pointer;
 `;

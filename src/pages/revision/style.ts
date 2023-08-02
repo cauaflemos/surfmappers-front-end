@@ -17,3 +17,7 @@ export const Showcase = styled.div`
     justify-content: center;
     margin-bottom: 2rem;
 `;
+
+export const NoPostsText = styled.h1`
+    font-size: 2rem;
+`;

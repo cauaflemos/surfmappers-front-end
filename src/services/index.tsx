@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const Axios = axios.create({
-    baseURL: 'http://localhost:3030/',
-    timeout: 10000, 
+    baseURL: 'https://surfmappers-back-end-git-master-cauaflemos.vercel.app',
+    timeout: 30000, 
 });
